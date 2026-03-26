@@ -11,6 +11,7 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 zoxide init fish | source
 alias cd 'z'
+alias ff 'fastfetch'
 
 # opencode
 fish_add_path /home/anurag/.opencode/bin

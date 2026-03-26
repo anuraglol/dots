@@ -14,5 +14,14 @@
       "dark": {
          "name": "rose-pine"
       }
+   },
+   "providers": {
+      "@anuraglol/clouflare": {
+         "entrypoints": {
+            "first-cmd": {
+               "enabled": false
+            }
+         }
+      }
    }
 }
