@@ -10,16 +10,31 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "font": {
+      "normal": {
+         "family": "Adwaita Sans"
+      }
+   },
    "theme": {
       "dark": {
          "name": "rose-pine"
       }
+   },
+   "telemetry": {
+      "system_info": false
    },
    "providers": {
       "@anuraglol/clouflare": {
          "entrypoints": {
             "first-cmd": {
                "enabled": false
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "browse-apps": {
+               "enabled": true
             }
          }
       }
