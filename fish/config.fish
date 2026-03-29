@@ -15,3 +15,6 @@ alias ff 'fastfetch'
 
 # opencode
 fish_add_path /home/anurag/.opencode/bin
+
+fish_add_path /home/anurag/.spicetify
+export GTK_CSD=0

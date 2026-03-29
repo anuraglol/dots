@@ -46,6 +46,10 @@
   margin: 0 7.5px;
 }
 
+#memory {
+    margin-right: 16px;
+}
+
 #tray {
   margin-right: 16px;
 }
