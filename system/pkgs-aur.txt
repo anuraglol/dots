@@ -1,0 +1,5 @@
+appimagelauncher
+bibata-cursor-theme
+gtk-nocsd-git
+python-pywal16
+vicinae

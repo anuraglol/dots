@@ -1,0 +1,54 @@
+[org/gnome/Snapshot]
+is-maximized=true
+window-height=640
+window-width=800
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+cursor-size=20
+cursor-theme='Bibata-Modern-Ice'
+document-font-name='JetBrains Mono 10'
+font-antialiasing='grayscale'
+font-hinting='slight'
+font-name='JetBrains Mono 10'
+font-rgba-order='rgb'
+gtk-theme='Adwaita-dark'
+icon-theme='Adwaita'
+monospace-font-name='JetBrains Mono 10'
+show-battery-percentage=true
+text-scaling-factor=0.97999999999999998
+toolbar-icons-size='large'
+toolbar-style='both-horiz'
+
+[org/gnome/desktop/sound]
+event-sounds=true
+input-feedback-sounds=false
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='medium'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+migrated-gtk-settings=true
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+maximized=true
+
+[org/gtk/gtk4/settings/file-chooser]
+show-hidden=false
+sort-directories-first=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=174
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(0, 0)
+window-size=(950, 608)
