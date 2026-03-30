@@ -1,0 +1,32 @@
+@define-color background-color #060B1E;
+@define-color border-color #6d7db6;
+@define-color label #ffcead;
+@define-color image #ffcead;
+@define-color progress #7d82d9;
+@define-color edge-light #ffcead;
+
+window {
+  border-radius: 0;
+  opacity: 0.97;
+  border: 2px solid @border-color;
+
+  background-color: @background-color;
+}
+
+label {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 10pt;
+  color: @label;
+}
+
+image {
+  color: @image;
+}
+
+progressbar {
+  border-radius: 0;
+}
+
+progress {
+  background-color: @progress;
+}

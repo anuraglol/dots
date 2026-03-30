@@ -1,0 +1,35 @@
+#!/bin/bash
+
+MONITOR="$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')"
+
+case "$1" in
+  vol_up)
+    swayosd-client --monitor "$MONITOR" --output-volume raise
+    ;;
+  vol_down)
+    swayosd-client --monitor "$MONITOR" --output-volume lower
+    ;;
+  vol_mute)
+    swayosd-client --monitor "$MONITOR" --output-volume mute-toggle
+    ;;
+  mic_mute)
+    swayosd-client --monitor "$MONITOR" --input-volume mute-toggle
+    ;;
+  bright_up)
+    brightnessctl set "$2"
+    swayosd-client --monitor "$MONITOR" --brightness raise
+    ;;
+  bright_down)
+    brightnessctl set "$2"
+    swayosd-client --monitor "$MONITOR" --brightness lower
+    ;;
+  next)
+    swayosd-client --monitor "$MONITOR" --playerctl next
+    ;;
+  prev)
+    swayosd-client --monitor "$MONITOR" --playerctl previous
+    ;;
+  play)
+    swayosd-client --monitor "$MONITOR" --playerctl play-pause
+    ;;
+esac

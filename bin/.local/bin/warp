@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if warp-cli status | grep -q "Connected"; then
+    warp-cli disconnect
+    notify-send -t 1000 "Warp" "Disconnected from Warp VPN"
+else
+    warp-cli connect
+    notify-send -t 1000 "Warp" "Connected to Warp VPN"
+fi

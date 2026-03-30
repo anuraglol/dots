@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# fix-suspend-wake.sh
+# Fixes suspend/wake failures on AMD laptops (CachyOS/Arch + Hyprland)
+# Root cause: XHC (USB host controller) wakeup sources fire spuriously
+# during s2idle, causing the machine to wake and immediately re-suspend,
+# making it appear as if the system never woke from sleep.
+
+set -e
+
+echo ">>> Checking current XHC wakeup status..."
+cat /proc/acpi/wakeup | grep XHC
+
+# Disable XHC wakeup sources for the current session (takes effect immediately)
+echo ">>> Disabling XHC wakeup sources for this session..."
+for dev in XHC0 XHC1 XHC2 XHC3 XHC4; do
+    if grep -q "^${dev}.*enabled" /proc/acpi/wakeup; then
+        echo "$dev" | sudo tee /proc/acpi/wakeup > /dev/null
+        echo "    Disabled $dev"
+    else
+        echo "    $dev already disabled, skipping"
+    fi
+done
+
+# Create a persistent udev rule so this survives reboots.
+# The rule matches all PCI devices using the xhci_hcd driver (USB 3.x host
+# controllers) and sets their wakeup attribute to disabled.
+echo ">>> Writing persistent udev rule..."
+sudo tee /etc/udev/rules.d/99-disable-xhc-wakeup.rules > /dev/null <<'EOF'
+SUBSYSTEM=="pci", DRIVER=="xhci_hcd", ATTR{power/wakeup}="disabled"
+EOF
+
+echo ">>> Reloading udev rules..."
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+echo ""
+echo ">>> Final XHC wakeup status (all should be *disabled):"
+cat /proc/acpi/wakeup | grep XHC
+
+echo ""
+echo "Done. Laptop keyboard, lid, and power button will still wake the system."
+echo "Only external USB devices are disabled as wakeup sources."

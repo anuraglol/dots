@@ -1,0 +1,14 @@
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
+gsettings set org.gnome.desktop.interface cursor-size 20
+
+gsettings set org.gnome.desktop.interface font-name 'JetBrains Mono 10'
+gsettings set org.gnome.desktop.interface document-font-name 'JetBrains Mono 10'
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono 10'
+
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+
+gsettings set org.gnome.desktop.interface text-scaling-factor 0.98
+
+gsettings set org.gnome.desktop.interface show-battery-percentage true

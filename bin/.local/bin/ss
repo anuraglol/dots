@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+dir="$HOME/Pictures/Screenshots"
+mkdir -p "$dir"
+
+file="$dir/$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+case "$1" in
+    full)
+        grim "$file" || exit 1
+        ;;
+    area)
+        geom="$(slurp)"
+        [ -z "$geom" ] && exit 0
+        grim -g "$geom" "$file" || exit 1
+        ;;
+    window)
+        geom=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+        [ -z "$geom" ] && exit 0
+        grim -g "$geom" "$file" || exit 1
+        ;;
+    *)
+        echo "usage: ss {full|area|window}"
+        exit 1
+        ;;
+esac
+
+[ ! -f "$file" ] && exit 1
+
+wl-copy < "$file"
+notify-send -t 2000 "Screenshot" "$file"
