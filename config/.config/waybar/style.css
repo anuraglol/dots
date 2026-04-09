@@ -1,5 +1,5 @@
-@define-color foreground #ffcead;
-@define-color background #060B1E;
+@define-color foreground #fff;
+@define-color background #000;
 
 * {
   background-color: @background;
@@ -7,9 +7,9 @@
 
   border: none;
   border-radius: 0;
-  min-height: 32px;
+  min-height: 36px;
   font-family: 'JetBrainsMono';
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .modules-left {
@@ -38,10 +38,7 @@
 
 #cpu,
 #battery,
-#pulseaudio,
-#custom-omarchy,
-
-#custom-update {
+#pulseaudio{
   min-width: 12px;
   margin: 0 7.5px;
 }
@@ -67,7 +64,7 @@
 }
 
 tooltip {
-  padding: 2px;
+  padding: 1px;
 }
 
 #custom-update {

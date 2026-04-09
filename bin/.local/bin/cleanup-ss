@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+find ~/Pictures/Screenshots -type f -mtime +7 -name "*.png" -delete >> /tmp/cleanup.log 2>&1
